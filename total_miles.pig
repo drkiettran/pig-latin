@@ -1,4 +1,4 @@
-records = LOAD 'airline/1987.csv' USING PigStorage(',') AS
+records = LOAD '/user/student/airline/1987.csv' USING PigStorage(',') AS
     (Year,Month,DayofMonth,DayOfWeek,DepTime,CRSDepTime,ArrTime,
     CRSArrTime,UniqueCarrier,FlightNum,TailNum,ActualElapsedTime,
     CRSElapsedTime,AirTime,ArrDelay,DepDelay,Origin,Dest,
@@ -7,4 +7,4 @@ records = LOAD 'airline/1987.csv' USING PigStorage(',') AS
     LateAircraftDelay);
 milage_recs = GROUP records ALL;
 tot_miles = FOREACH milage_recs GENERATE SUM(records.Distance);
-STORE tot_miles INTO 'totalmiles';
+STORE tot_miles INTO '/tmp/totalmiles';
