@@ -1,9 +1,9 @@
 records = LOAD '/user/student/airline/1987.csv' USING PigStorage(',') AS
-    (Year,Month,DayofMonth,DayOfWeek,DepTime,CRSDepTime,ArrTime,
-     CRSArrTime,UniqueCarrier,FlightNum,TailNum,ActualElapsedTime,
-     CRSElapsedTime,AirTime,ArrDelay,DepDelay,Origin,Dest,
-     Distance:int,TaxiIn,TaxiOut,Cancelled,CancellationCode,
-     Diverted,CarrierDelay,WeatherDelay,NASDelay,SecurityDelay,
+    (Year, Month, DayofMonth, DayOfWeek, DepTime, CRSDepTime, ArrTime,
+     CRSArrTime, UniqueCarrier, FlightNum, TailNum, ActualElapsedTime,
+     CRSElapsedTime, AirTime, ArrDelay, DepDelay, Origin,Dest,
+     Distance:int, TaxiIn, TaxiOut,Cancelled, CancellationCode,
+     Diverted, CarrierDelay, WeatherDelay, NASDelay, SecurityDelay,
      LateAircraftDelay);
 carriers = FOREACH records GENERATE UniqueCarrier as carrier;
 grouped = GROUP carriers BY carrier;
