@@ -1,4 +1,4 @@
-records = LOAD '/user/student/airline/1987.csv' USING PigStorage(',') AS
+records = LOAD '/user/student/airline/1987.csv' USING org.apache.pig.piggybank.storage.CSVExcelStorage(',', 'NO_MULTILINE', 'UNIX', 'SKIP_INPUT_HEADER') AS
     (Year, Month, DayofMonth, DayOfWeek, DepTime, CRSDepTime, ArrTime,
      CRSArrTime, UniqueCarrier, FlightNum, TailNum, ActualElapsedTime,
      CRSElapsedTime, AirTime, ArrDelay, DepDelay, Origin,Dest,
