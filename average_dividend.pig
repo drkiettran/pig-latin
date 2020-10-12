@@ -11,7 +11,7 @@ grouped = group dividends by symbol;
 avg = foreach grouped generate group, AVG(dividends.dividend);
 
 -- remove the output dir
-fs -rm -r /tmp/average_dividend
+-- fs -rm -r /tmp/average_dividend
 
 -- store result into an output dir
 store avg into '/tmp/average_dividend';

@@ -9,7 +9,33 @@ lines = load '/user/student/shakespeare/tragedy/othello.txt' as (line);
 
 
 words = foreach lines generate flatten (TOKENIZE(line, '-,:.;?!\' ')) as word;
+dump words;
 
+/**
+Myself will straight aboard: and to the state
+    This heavy act with heavy heart relate.
+
+    Exeunt
+
+
+(Myself)
+(will)
+(straight)
+(aboard)
+(and)
+(to)
+(the)
+(state)
+(This)
+(heavy)
+(act)
+(with)
+(heavy)
+(heart)
+(relate)
+()
+(Exeunt)
+ **/
 -- group them together by each word
 
 grpd = group words by word;
@@ -22,7 +48,7 @@ cntd = foreach grpd generate group, COUNT(words);
 -- dump cntd;
 
 -- remove the output dir
-fs -rm -r /tmp/pig_count
+-- fs -rm -r /tmp/pig_count
 
 -- store result into a file in outdir
 
